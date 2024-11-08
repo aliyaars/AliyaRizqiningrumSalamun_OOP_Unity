@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
     // Batas kecepatan minimum untuk berhenti
     public Vector2 stopClamp = new Vector2(2.5f, 2.5f);
 
+    // Menambahkan batas area kamera 
+    public float xLimit = 8.5f; // Batas kanan/kiri
+    public float yLimit = 4.5f; // Batas atas/bawah
+
     // Arah gerakan player sesuai input
     private Vector2 moveDirection;
     // Gaya yang diberikan ke player
@@ -54,6 +58,12 @@ public class PlayerMovement : MonoBehaviour
         currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 
         targetVelocity.y, stopFriction.y * Time.fixedDeltaTime);
         rb.velocity = currentVelocity;
+
+        // Batasi posisi pemain agar tidak keluar dari batas kamera
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -xLimit, xLimit);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -yLimit, yLimit);
+        transform.position = clampedPosition;
     }
 
     // Mengembalikan true jika player sedang bergerak dan false jika tidak
