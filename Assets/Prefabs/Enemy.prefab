@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 8756230871062975889}
   - component: {fileID: 8882150644032397808}
   - component: {fileID: 2440018396165774970}
+  - component: {fileID: 2869831849281280334}
+  - component: {fileID: 4433192198784432536}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -187,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9614b43d59ca94a418d5e7a2cd2265d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
 --- !u!114 &8882150644032397808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d7be1fa34804941ad1c27bc09d3439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 700
 --- !u!114 &2440018396165774970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,3 +215,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab512e289309e540ac9d59df600aa86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  damage: 10
+--- !u!114 &2869831849281280334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235405445560048904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecddece96f9c47489d495aea026cab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyVariants:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  selectedVariant: 0
+--- !u!114 &4433192198784432536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235405445560048904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25341eb8461d9742bbcbe2f89d095d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkingCount: 7
+  blinkInterval: 0.1
+  blinkMaterial: {fileID: 2100000, guid: 07f2ee0b1058c004286109e2f3d81cc6, type: 2}
+  isInvincible: 0
