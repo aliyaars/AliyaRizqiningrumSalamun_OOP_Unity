@@ -1,50 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UIMain : MonoBehaviour
 {
-    private Label point;
-    private Label health;
-    private Label wave;
-    private Label enemies;
+    private Label pointsLabel;
+    private Label healthLabel;
+    private Label waveLabel;
+    private Label enemiesLabel;
 
-    private Player player;
-    private CombatManager combatManager;
+    private Player currentPlayer;
+    private CombatManager currentCombatManager;
 
     void Start()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
-        point = root.Q<Label>("Point");
-        health = root.Q<Label>("Health");
-        wave = root.Q<Label>("Wave");
-        enemies = root.Q<Label>("Enemies");
+        var rootVisualElement = GetComponent<UIDocument>().rootVisualElement;
+        pointsLabel = rootVisualElement.Q<Label>("Point");
+        healthLabel = rootVisualElement.Q<Label>("Health");
+        waveLabel = rootVisualElement.Q<Label>("Wave");
+        enemiesLabel = rootVisualElement.Q<Label>("Enemies");
 
-        player = Player.Instance;
-        combatManager = FindObjectOfType<CombatManager>();
+        currentPlayer = Player.Instance;
+        currentCombatManager = FindObjectOfType<CombatManager>();
     }
 
     void Update()
     {
-        if (player != null && health != null)
+        if (currentPlayer != null && healthLabel != null)
         {
-            health.text = "Health: " + player.GetComponent<HealthComponent>().health;
+            healthLabel.text = "Health: " + currentPlayer.GetComponent<HealthComponent>().health;
         }
 
-        if (combatManager != null)
+        if (currentCombatManager != null)
         {
-            if (point != null)
+            if (pointsLabel != null)
             {
-                point.text = "Points: " + combatManager.totalPoints;
+                pointsLabel.text = "Points: " + currentCombatManager.totalPoints;
             }
-            if (wave != null)
+            if (waveLabel != null)
             {
-                wave.text = "Wave: " + combatManager.waveNumber;
+                waveLabel.text = "Wave: " + currentCombatManager.waveNumber;
             }
-            if (enemies != null)
+            if (enemiesLabel != null)
             {
-                enemies.text = "Enemies Left: " + combatManager.totalEnemies;
+                enemiesLabel.text = "Enemies Left: " + currentCombatManager.totalEnemies;
             }
         }
     }
