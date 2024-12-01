@@ -1,25 +1,29 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    public int Level;
+    [SerializeField] protected int level;
 
-    void Start()
+    public UnityEvent enemyKilledEvent;
+
+    private void Start()
     {
-        // Konfigurasi awal untuk Enemy
-        // gameObject.SetActive(false); // Mematikan enemy di awal permainan
+        enemyKilledEvent ??= new UnityEvent();
     }
 
-    void Update()
+    public void SetLevel(int level)
     {
-        // Logika Enemy dasar dan menambahkan sesuai kebutuhan
+        this.level = level;
     }
 
-    // Coroutine untuk mengaktifkan Enemy setelah penundaan tertentu
-    protected IEnumerator EnableAfterDelay(float delayDuration)
+    public int GetLevel()
     {
-        yield return new WaitForSeconds(delayDuration);
-        gameObject.SetActive(true);
+        return level;
+    }
+
+    private void OnDestroy()
+    {
+        enemyKilledEvent.Invoke();
     }
 }

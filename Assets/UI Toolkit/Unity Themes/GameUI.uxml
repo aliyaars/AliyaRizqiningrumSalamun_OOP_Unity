@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Unity%20Themes/MainMenu.uss?fileID=7433441132597879392&amp;guid=639493f1ad58e524591e0289d2612070&amp;type=3#MainMenu" />
+    <ui:Label name="GameTitle" tabindex="-1" text="Airpelane&apos;s Shooter" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 30px; color: rgb(255, 255, 255); -unity-text-align: middle-center; -unity-text-outline-color: rgba(255, 0, 146, 0); border-left-color: rgba(255, 0, 110, 0); border-right-color: rgba(255, 0, 110, 0); border-top-color: rgba(255, 0, 110, 0); border-bottom-color: rgba(255, 0, 110, 0); height: 90px; border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px;" />
+    <ui:VisualElement style="flex-grow: 1;" />
+</ui:UXML>
